@@ -15,6 +15,14 @@ class CreateGurusTable extends Migration
     {
         Schema::create('gurus', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('nipg');
+            $table->string('foto');
+            $table->string('nama_guru');
+            $table->string('jenis_kelamin');
+            $table->date('tanggal_lahir');
+            $table->integer('id_mapel')->unsigned();
+            $table->text('alamat');
+            $table->string('no_telepon');
             $table->timestamps();
         });
     }
