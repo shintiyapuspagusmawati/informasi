@@ -39,10 +39,8 @@ class mapelController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[
-            'mapel'=>'required']);
             $mapels =  new mapel();
-            $mapels->mapel = $request->mapel;
+            $mapels->name = $request->name;
             $mapels->save();
             return redirect()->route('mapel.index')->with('alert-success', 'Data Berhasil Disimpan.'); 
     }
@@ -81,9 +79,9 @@ class mapelController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,['name' => 'required|unique:mapels']);
         $mapels = mapel::findOrFail($id);
-        $mapels->update($request->only('name'));
+        $mapels->name=$request->mapel;
+        $mapels->save();
         return redirect()->route('mapel.index')->with('alert-success', 'Data Berhasil Diubah.');
     }
 

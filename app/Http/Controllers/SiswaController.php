@@ -3,13 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\siswa;
+use App\kelas;
+use App\jurusan;
+use App\Http\Requests\SiswaRequest;
+use DB;
 use Illuminate\Http\Request;
 
 class SiswaController extends Controller
 {
     public function index()
     {
-        $siswas = siswa::all();
+        $siswas = DB::table('siswas')->join('jurusans','jurusans.id','=','siswas.jurusan_id')->join('kelas','kelas.id','=','siswas.id_kelas')->select('siswas.*','jurusans.jurusan','kelas.kelas')->get();
         return view('siswa.index', compact('siswas'));
     }
 
@@ -20,7 +24,9 @@ class SiswaController extends Controller
      */
     public function create()
     {
-        return view('siswa.create');
+        $kelas=kelas::all();
+        $jurusan=jurusan::all();
+        return view('siswa.create', compact('kelas','jurusan'));
     }
 
     /**
@@ -29,7 +35,7 @@ class SiswaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(SiswaRequest $request)
     {
         //
             $siswas =  new siswa();
@@ -49,6 +55,8 @@ class SiswaController extends Controller
             $siswas->jurusan_id = $request->jurusan_id;
             $siswas->alamat = $request->alamat;
             $siswas->no_telepon = $request->no_telepon;
+            $siswas->email = $request->email;
+            $siswas->password = $request->password;
             $siswas->save();
             return redirect()->route('siswa.index')->with('alert-success', 'Data Berhasil Disimpan.');
     }
@@ -75,7 +83,9 @@ class SiswaController extends Controller
     {
         //
         $siswas = siswa::findOrFail($id);
-        return view('siswa.edit', compact('siswas'));
+        $kelas = kelas::all();
+        $jurusan = jurusan::all();
+        return view('siswa.edit', compact('siswas','kelas','jurusan'));
     }
 
     /**
@@ -92,21 +102,21 @@ class SiswaController extends Controller
             $siswas->nis = $request->nis;
             $siswas->foto = $request->foto;
             if ($request->hasfile('foto')) {
-                $siswas = $request->file('foto');
-                $extension = $siswas->getClientOriginalExtension();
+                $siswa = $request->file('foto');
+                $extension = $siswa->getClientOriginalExtension();
                 $filename = str_random(6).'.'.$extension;
-                $destinationPath = public_path() . DIRECTORY_SEPERATOR . 'img';
-                $siswas->move($destinationPath, $filename);
+                $destinationPath = public_path().'/img';
+                $siswa->move($destinationPath, $filename);
                 $siswas->foto = $filename; 
+            }
             $siswas->nama_siswa = $request->nama_siswa;
             $siswas->jenis_kelamin = $request->jenis_kelamin;
             $siswas->tanggal_lahir = $request->tanggal_lahir;
-            $siswas->id_mapel = $request->id_mapel;
             $siswas->alamat = $request->alamat;
             $siswas->no_telepon = $request->no_telepon;
             $siswas->save();
             return redirect()->route('siswa.index')->with('alert-success', 'Data Berhasil Diubah.');
-    }
+    
 }
 
     /**

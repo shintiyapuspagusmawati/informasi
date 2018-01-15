@@ -59,6 +59,11 @@
                             <li><a href="{{route('kelas.index')}}">Kelas</a></li>
                             <li><a href="{{route('mapel.index')}}">Pelajaran</a></li>
                             <li><a href="{{route('jurusan.index')}}">Jurusan</a></li>
+                            <li><a href="{{route('nilai.index')}}">Nilai</a></li>
+                        @endrole
+                        @role('guru')
+                            <li><a href="{{route('siswa.index')}}">Siswa</a></li>
+                            <li><a href="{{route('nilai.index')}}">Nilai</a></li>
                         @endrole
                         @if (auth()->check())
                             <li><a href="{{ url('/settings/profile') }}">Profil</a></li>

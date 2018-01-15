@@ -14,5 +14,8 @@ class JurusanSeeder extends Seeder
     {
         //
         $jurusan1 = Jurusan::create(['jurusan'=>'Informatika']);
+        $jurusan2 = Jurusan::create(['jurusan'=>'Teknik Kendraan Ringan']);
+        $jurusan3 = Jurusan::create(['jurusan'=>'Teknik Sepeda Motor']);
+           
     }
 }

@@ -38,8 +38,6 @@ class JurusanController extends Controller
     public function store(Request $request)
     {
         //
-        $this->validate($request,[
-            'jurusan'=>'required']);
             $jurusans =  new jurusan();
             $jurusans->jurusan = $request->jurusan;
             $jurusans->save();
@@ -80,9 +78,9 @@ class JurusanController extends Controller
     public function update(Request $request, $id)
     {
         //
-        $this->validate($request,['name' => 'required|unique:jurusans']);
         $jurusan = jurusan::find($id);
-        $jurusan->update($request->only('name'));
+        $jurusan->jurusan = $request ->jurusan;
+        $jurusan->save();
         return redirect()->route('jurusan.index')->with('alert-success', 'Data Berhasil Diubah.');
     }
 

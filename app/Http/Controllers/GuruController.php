@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\guru;
+use App\mapel;
+use App\Http\Requests\GuruRequest;
 use Illuminate\Http\Request;
-
+use DB;
 class GuruController extends Controller
 {
     /**
@@ -14,7 +16,7 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $gurus = guru::all();
+        $gurus = DB::table('gurus')->join('mapels','gurus.id_mapel','=','mapels.id')->select('gurus.*', 'mapels.name')->get();
         return view('guru.index', compact('gurus'));
     }
 
@@ -25,7 +27,8 @@ class GuruController extends Controller
      */
     public function create()
     {
-        return view('guru.create');
+        $gurus= mapel::all();
+        return view('guru.create',compact('gurus'));
     }
 
     /**
@@ -34,7 +37,7 @@ class GuruController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GuruRequest $request)
     {
         //
             $gurus =  new guru();
@@ -53,8 +56,10 @@ class GuruController extends Controller
             $gurus->id_mapel = $request->id_mapel;
             $gurus->alamat = $request->alamat;
             $gurus->no_telepon = $request->no_telepon;
+            $gurus->email = $request->email;
+            $gurus->password = $request->password;
             $gurus->save();
-            return redirect()->route('guru.index')->with('alert-success', 'Data Berhasil Diubah.');
+            return redirect()->route('guru.index')->with('alert-success', 'Data Berhasil Ditambah.');
     }
 
     /**
@@ -79,7 +84,8 @@ class GuruController extends Controller
     {
         //
         $gurus = guru::findOrFail($id);
-        return view('guru.edit', compact('gurus'));
+        $a =  mapel::all(); 
+        return view('guru.edit', compact('gurus','a'));
     }
 
     /**
@@ -96,11 +102,11 @@ class GuruController extends Controller
             $gurus->nipg = $request->nipg;
             $gurus->foto = $request->foto;
             if ($request->hasfile('foto')) {
-                $gurus = $request->file('foto');
-                $extension = $gurus->getClientOriginalExtension();
+                $guru = $request->file('foto');
+                $extension = $guru->getClientOriginalExtension();
                 $filename = str_random(6).'.'.$extension;
-                $destinationPath = public_path() . DIRECTORY_SEPERATOR . 'img';
-                $gurus->move($destinationPath, $filename);
+                $destinationPath = public_path().'/img';
+                $guru->move($destinationPath, $filename);
                 $gurus->foto = $filename; 
             }
             $gurus->nama_guru = $request->nama_guru;
@@ -109,6 +115,8 @@ class GuruController extends Controller
             $gurus->id_mapel = $request->id_mapel;
             $gurus->alamat = $request->alamat;
             $gurus->no_telepon = $request->no_telepon;
+            $gurus->email = $request->email;
+            $gurus->password = $request->password;
             $gurus->save();
          return redirect()->route('guru.index')->with('alert-success', 'Data Berhasil Diubah.');
     
