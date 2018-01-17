@@ -27,12 +27,6 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','role:admin']], function()
 	Route::resource('nilai','NilaiController');
     });
 
-// Route::get('/home', 'HomeController@index');
-// Route::group(['prefix'=>'guru','middleware'=>['auth','role:guru']], function(){
-//     Route::resource('siswa', 'SiswaController');
-//     Route::resource('nilai','NilaiController');
-//     });
-
  Route::get('/rekayasa', function () {
         return view('nilai.rekperlun.kelass');
     });

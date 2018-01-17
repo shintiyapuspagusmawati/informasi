@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\siswa;
 use App\kelas;
 use App\jurusan;
+use App\user;
+use App\Role;
 use App\Http\Requests\SiswaRequest;
 use DB;
 use Illuminate\Http\Request;
@@ -58,6 +60,15 @@ class SiswaController extends Controller
             $siswas->email = $request->email;
             $siswas->password = $request->password;
             $siswas->save();
+
+            $user= new user();
+            $user->name = $request->nama_siswa;
+            $user->email = $request->email;
+            $user->password =bcrypt($request->password);
+            $user->is_verified = 1;
+            $user->save();
+            $siswaRole = Role::where('name', 'siswa')->first();
+            $user->attachRole($siswaRole);
             return redirect()->route('siswa.index')->with('alert-success', 'Data Berhasil Disimpan.');
     }
 

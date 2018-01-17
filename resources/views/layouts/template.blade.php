@@ -39,7 +39,15 @@
       <!--header start-->
       <header class="header black-bg">
             <!--logo start-->
-            <a href="index.html" class="logo"><b>Admin Informasi</b></a>
+            @role('admin')
+            <a href="{{ url('/home') }}" class="logo"><b>Admin Informasi</b></a>
+            @endrole
+            @role('guru')
+            <a href="{{ url('/home') }}" class="logo"><b>Guru Informasi</b></a>
+            @endrole
+            @role('siswa')
+            <a href="{{ url('/home') }}" class="logo"><b>Siswa Informasi</b></a>
+            @endrole
             <!--logo end-->
             <div class="top-menu">
               <ul class="nav pull-right logout">

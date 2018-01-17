@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\guru;
 use App\mapel;
+use App\user;
+use App\kelas;
+use App\Role;
 use App\Http\Requests\GuruRequest;
 use Illuminate\Http\Request;
 use DB;
@@ -16,7 +19,7 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $gurus = DB::table('gurus')->join('mapels','gurus.id_mapel','=','mapels.id')->select('gurus.*', 'mapels.name')->get();
+        $gurus = DB::table('gurus')->join('mapels','gurus.id_mapel','=','mapels.id')->join('kelas','kelas.id','=','gurus.id_kelas')->select('gurus.*', 'mapels.name','kelas.kelas')->get();
         return view('guru.index', compact('gurus'));
     }
 
@@ -27,8 +30,9 @@ class GuruController extends Controller
      */
     public function create()
     {
+        $kelas=kelas::all();
         $gurus= mapel::all();
-        return view('guru.create',compact('gurus'));
+        return view('guru.create',compact('gurus','kelas'));
     }
 
     /**
@@ -53,12 +57,22 @@ class GuruController extends Controller
             $gurus->nama_guru = $request->nama_guru;
             $gurus->jenis_kelamin = $request->jenis_kelamin;
             $gurus->tanggal_lahir = $request->tanggal_lahir;
+            $gurus->id_kelas = $request->id_kelas;
             $gurus->id_mapel = $request->id_mapel;
             $gurus->alamat = $request->alamat;
             $gurus->no_telepon = $request->no_telepon;
             $gurus->email = $request->email;
             $gurus->password = $request->password;
             $gurus->save();
+
+            $user= new user();
+            $user->name = $request->nama_guru;
+            $user->email = $request->email;
+            $user->password =bcrypt($request->password);
+            $user->is_verified = 1;
+            $user->save();
+            $guruRole = Role::where('name', 'guru')->first();
+            $user->attachRole($guruRole);
             return redirect()->route('guru.index')->with('alert-success', 'Data Berhasil Ditambah.');
     }
 
