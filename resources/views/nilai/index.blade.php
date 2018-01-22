@@ -4,7 +4,7 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-            
+              @role('admin')
                   <li class="sub-menu">
                       <a href="{{ route('guru.index') }}">
                           <i class="fa fa-book"></i>
@@ -31,14 +31,15 @@
                   </li>
                   <li class="sub-menu">
                       <a href="{{ route('jurusan.index') }}" >
-                          <i class=" fa fa-tasks"></i>
+                          <i class=" fa fa-cogs"></i>
                           <span>Jurusan</span>
                       </a>
                   </li>
+                  @endrole
                   <li class="mt">
-                      <a class="active" href="{{ url('/nilai') }}" >
+                      <a class="active" href="{{ route('nilai.index') }}" >
                           <i class=" fa fa-file"></i>
-                          <span>Lihat Nilai Siswa</span>
+                          <span>Nilai Siswa</span>
                       </a>
                   </li>
               </ul>
@@ -48,39 +49,65 @@
       
 <div class="container">
     <div class="row">
-        <br><br><br><br><br>
+      <br><br><br><br><br>
         <div class="col-md-10 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <center><label class="panel-title"><h3><b>Silakan Pilih Jurusan</b></h3></label></center><br><br>
+                <div class="panel-title">Nilai Siswa</div>
                 </div>
-
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="col-sm-12">
-                                <center><a href="/rekayasa" class="btn btn-info"><i class="pe-7s-usb"></i> REKAYASA PERANGKAT LUNAK</a></center>
-                                  <div><br><br><br></div>
-                            </div>
+                @if(Session::has('alert-success'))
+                        <div class="alert alert-success">
+                            {{ Session::get('alert-success') }}
                         </div>
-
-                        <div class="col-md-4">
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-info"><i class="pe-7s-car"></i> TEKNIK KENDARAAN RINGAN</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-info"><i class="pe-7s-bicycle"></i> TEKNIK SEPEDA MOTOR</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                        </div>
-                    </div>
+                    @endif
+                    @role('guru')
+                    <a href="{{route('nilai.create')}}" class="btn btn-info pull-left">Tambah Data</a>
+                    @endrole
+                    <table class="table table-hover">
+                            <tr>
+                                <th>Id</th>
+                                <th>Nama Siswa</th>
+                                <th>Mata Pelajaran</th>
+                                <th>KKM</th>
+                                <th>UH1</th>
+                                <th>UH2</th>
+                                <th>UH3</th>
+                                <th>UH4</th>
+                                <th>UTS</th>
+                                <th>UAS</th>
+                                @role('guru')
+                                <th colspan="2">action</th>
+                                @endrole
+                             </tr>
+                        @foreach ($nilai as $data)
+                        <tr>
+                            <td>{{$data->id}}</td>
+                            <td>{{$data->nama_siswa}}</td>
+                            <td>{{$data->name}}</td>
+                            <td>{{$data->kkm}}</td>
+                            <td>{{$data->uh1}}</td>
+                            <td>{{$data->uh2}}</td>
+                            <td>{{$data->uh3}}</td>
+                            <td>{{$data->uh4}}</td>
+                            <td>{{$data->uts}}</td>
+                            <td>{{$data->uas}}</td>
+                        <td>
+                                <form method="POST" action="{{ route('nilai.destroy', $data->id) }}" accept-charset="UTF-8">
+                                    <input name="_method" type="hidden" value="DELETE">
+                                    <input name="_token" type="hidden" value="{{ csrf_token() }}">
+                                    @role('guru')
+                                    <a href="{{route('nilai.edit', $data->id)}}" class="btn btn-warning">Edit</a>
+                                    <input type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin akan menghapus data ?');" value="Delete">
+                                    @endrole
+                                </form>
+                            </td>
+                      </tr>
+                        @endforeach
+                    </table>
                 </div>
             </div>
-        </div>
+        </div>  
     </div>
 </div>
 @endsection

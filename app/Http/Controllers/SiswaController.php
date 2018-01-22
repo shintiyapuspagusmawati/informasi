@@ -112,13 +112,16 @@ class SiswaController extends Controller
             $siswas =  siswa::findOrFail($id);
             $siswas->nis = $request->nis;
             $siswas->foto = $request->foto;
-            if ($request->hasfile('foto')) {
+            if ($request->hasfile('foto'))
+             {
+
                 $siswa = $request->file('foto');
                 $extension = $siswa->getClientOriginalExtension();
                 $filename = str_random(6).'.'.$extension;
                 $destinationPath = public_path().'/img';
                 $siswa->move($destinationPath, $filename);
-                $siswas->foto = $filename; 
+                $siswas->foto = $filename;
+                $siswas->save();
             }
             $siswas->nama_siswa = $request->nama_siswa;
             $siswas->jenis_kelamin = $request->jenis_kelamin;

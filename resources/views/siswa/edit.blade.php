@@ -64,7 +64,7 @@
                         </tr>
                         <tr>
                             <td><label>Foto</label></td>
-                            <td><img src="{{asset('img/'.$siswas->foto)}}" width="100px" height="100px"><input type="file" name="foto" value="<?php echo $siswas['foto'];?>"></td>
+                            <td><img src="{{asset('img/'.$siswas->foto)}}" width="100px" height="100px"><input type="file" name="foto"></td>
                         </tr>
                         <tr>
                             <td><label>Nama siswa</label></td>
@@ -73,8 +73,8 @@
                         <tr>
                             <td><label>Jenis Kelamin</label></td>
                             <td>
-                            <input type="radio" name="jenis_kelamin" value="Laki Laki" class="">Laki Laki
-                            <input type="radio" name="jenis_kelamin" value="Perempuan" class="">Perempuan
+                            <input type="radio" name="jenis_kelamin" value="Laki Laki<?php echo $siswas['jenis_kelamin'];?>" class="" >Laki Laki
+                            <input type="radio" name="jenis_kelamin" value="Perempuan<?php echo $siswas['jenis_kelamin'];?>" class="">Perempuan
                             </td>
                         </tr>
                         <tr>

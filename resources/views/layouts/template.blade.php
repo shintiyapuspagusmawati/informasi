@@ -40,13 +40,13 @@
       <header class="header black-bg">
             <!--logo start-->
             @role('admin')
-            <a href="{{ url('/home') }}" class="logo"><b>Admin Informasi</b></a>
+            <a href="{{ url('/home') }}" class="logo"><b>{{ Auth::user()->name}}</b></a>
             @endrole
             @role('guru')
-            <a href="{{ url('/home') }}" class="logo"><b>Guru Informasi</b></a>
+            <a href="{{ url('/home') }}" class="logo"><b>{{ Auth::user()->name}}</b></a>
             @endrole
             @role('siswa')
-            <a href="{{ url('/home') }}" class="logo"><b>Siswa Informasi</b></a>
+            <a href="{{ url('/home') }}" class="logo"><b>{{ Auth::user()->name}}</b></a>
             @endrole
             <!--logo end-->
             <div class="top-menu">

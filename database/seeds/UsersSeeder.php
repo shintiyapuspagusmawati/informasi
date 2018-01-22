@@ -17,11 +17,17 @@ class UsersSeeder extends Seeder
         $adminRole->display_name = "Admin";
         $adminRole->save();
 
-        // membuat role member
-        $memberRole = new Role();
-        $memberRole->name = "member";
-        $memberRole->display_name = "Member";
-        $memberRole->save();
+        // membuat role guru
+        $guruRole = new Role();
+        $guruRole->name = "guru";
+        $guruRole->display_name = "Guru";
+        $guruRole->save();
+
+        // membuat role siswa
+        $siswaRole = new Role();
+        $siswaRole->name = "siswa";
+        $siswaRole->display_name = "Siswa";
+        $siswaRole->save();
 
         // membuat sample admin
         $admin= new User();
@@ -31,14 +37,5 @@ class UsersSeeder extends Seeder
         $admin->is_verified = 1;
         $admin->save();
         $admin->attachRole($adminRole);
-
-        // membuat sample member
-        $member= new User();
-        $member->name = "Sample Member";
-        $member->email = "member@gmail.com";
-        $member->password = bcrypt('rahasia');
-        $admin->is_verified = 1;
-        $member->save();
-        $member->attachRole($memberRole);
     }
 }

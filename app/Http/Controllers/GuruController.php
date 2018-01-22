@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use App\guru;
 use App\mapel;
-use App\user;
 use App\kelas;
 use App\Role;
+use App\user;
 use App\Http\Requests\GuruRequest;
 use Illuminate\Http\Request;
 use DB;
@@ -31,8 +31,8 @@ class GuruController extends Controller
     public function create()
     {
         $kelas=kelas::all();
-        $gurus= mapel::all();
-        return view('guru.create',compact('gurus','kelas'));
+        $a= mapel::all();
+        return view('guru.create',compact('a','kelas'));
     }
 
     /**
@@ -44,7 +44,16 @@ class GuruController extends Controller
     public function store(GuruRequest $request)
     {
         //
+            $user= new user();
+            $user->name = $request->nama_guru;
+            $user->email = $request->email;
+            $user->password =bcrypt($request->password);
+            $user->is_verified = 1;
+            $user->save();
+            $guruRole = Role::where('name', 'guru')->first();
+            $user->attachRole($guruRole);
             $gurus =  new guru();
+            $gurus->id_user = $user->id;
             $gurus->nipg = $request->nipg;
             if ($request->hasfile('foto')) {
                 $guru = $request->file('foto');
@@ -65,14 +74,7 @@ class GuruController extends Controller
             $gurus->password = $request->password;
             $gurus->save();
 
-            $user= new user();
-            $user->name = $request->nama_guru;
-            $user->email = $request->email;
-            $user->password =bcrypt($request->password);
-            $user->is_verified = 1;
-            $user->save();
-            $guruRole = Role::where('name', 'guru')->first();
-            $user->attachRole($guruRole);
+           
             return redirect()->route('guru.index')->with('alert-success', 'Data Berhasil Ditambah.');
     }
 

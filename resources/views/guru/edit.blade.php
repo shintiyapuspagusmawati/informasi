@@ -75,7 +75,7 @@
                             <td><label>Jenis Kelamin</label></td>
                             <td>
                             <input type="radio" name="jenis_kelamin" value="Laki-Laki" 
-                            <?php echo ($gurus['jenis_kelamin']=='Laki-Laki')?'cheked':''?>>Laki-Laki
+                            <?php echo ($gurus['jenis_kelamin']=='Laki-Laki')?'cheked':''?>>Laki-Laki&nbsp;&nbsp;
                             <input type="radio" name="jenis_kelamin" value="Perempuan" 
                             <?php echo ($gurus['jenis_kelamin']=='Perempuan')?'cheked':''?>>Perempuan
                             </td>
@@ -104,6 +104,18 @@
                             <td><label>No Telepon</label></td>
                             <td>
                                 <input type="text" name="no_telepon" class="form-control" value="<?php echo $gurus['no_telepon'];?>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Email</label></td>
+                            <td>
+                                <input type="Email" name="email" class="form-control" required="" value="<?php echo $gurus['email'];?>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Password</label></td>
+                            <td>
+                                <input type="Password" name="password" class="form-control" required="" value="<?php echo $gurus['password'];?>"></textarea>
                             </td>
                         </tr>
                     </table>

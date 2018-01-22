@@ -4,9 +4,9 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-              
-                  <li class="mt">
-                      <a class="active" href="{{ route('guru.index') }}">
+              @role('admin')
+                  <li class="sub-menu">
+                      <a href="{{ route('guru.index') }}">
                           <i class="fa fa-book"></i>
                           <span>Data Guru</span>
                       </a>
@@ -35,24 +35,25 @@
                           <span>Jurusan</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
-                      <a href="{{ route('nilai.index') }}" >
+                  @endrole
+                  <li class="mt">
+                      <a class="active" href="{{ route('nilai.index') }}" >
                           <i class=" fa fa-file"></i>
-                          <span>Lihat Nilai Siswa</span>
+                          <span>Nilai Siswa</span>
                       </a>
                   </li>
               </ul>
               <!-- sidebar menu end-->
           </div>
       </aside>
-
+      
 <div class="container">
     <div class="row">
       <br><br><br><br><br>
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                <div class="panel-title">Tambah Data Guru</div>
+                <div class="panel-title">Tambah Nilai Siswa</div>
                 </div>
                 <div class="panel-body">
                   @if($errors->any())
@@ -62,39 +63,14 @@
                             @endforeach
                         </div>
                     @endif
-                   <form action="{{route('guru.store')}}" method="post" enctype="multipart/form-data" files="true">
+
                     {{csrf_field()}}
                     <table class="table table-hover">
-                        <tr>
-                            <td><label>NIPG</label></td>
-                            <td><input type="text" name="nipg" class="form-control" required=""></td>
-                        </tr>
-                        <tr>
-                            <td><label>Foto</label></td>
-                            <td><input type="file" name="foto"></td>
-                        </tr>
-                        <tr>
-                            <td><label>Nama Guru</label></td>
-                            <td><input type="text" name="nama_guru" class="form-control" required=""></td>
-                        </tr>
-                        <tr>
-                            <td><label>Jenis Kelamin</label></td>
-                            <td>
-                            <input type="radio" name="jenis_kelamin" value="Laki Laki" class="">Laki Laki
-                            <input type="radio" name="jenis_kelamin" value="Perempuan" class="">Perempuan
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label>Tanggal Lahir</label></td>
-                            <td>
-                                <input type="date" name="tanggal_lahir" class="form-control" required="">
-                            </td>
-                        </tr>
-                        <tr>
-                            <td><label>Kelas</label></td>
-                            <td><select class="form-control" name="id_kelas">
-                                @foreach($kelas as $data)
-                                <option value="{{$data->id}}">{{$data->kelas}}</option>
+                      <tr>
+                            <td><label>Nama Siswa</label></td>
+                            <td><select class="form-control" name="id_siswa">
+                                @foreach($siswa as $data)
+                                <option value="{{$data->id}}">{{$data->nama_siswa}}</option>
                                 @endforeach
                                 </select></td>
                         </tr>
@@ -102,42 +78,46 @@
                             <tr>
                               <td><label>Mata Pelajaran</label></td>
                                 <td><select class="form-control" name="id_mapel" required="">
-                                @foreach($a as $data)
-                                <option value="{{$data->id}}">{{$data->name}}</option>
-                                @endforeach
+                                <option value="{{$mapel->id}}">{{$mapel->name}}</option>
                                 </select></td>
                             </tr>
                         </tr>
                         <tr>
-                            <td><label>Alamat</label></td>
+                            <td><label>KKM</label></td>
+                            <td><input type="text" name="kkm" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label>UH1</label></td>
+                            <td><input type="text" name="uh1" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label>UH2</label></td>
                             <td>
-                                <textarea name="alamat" class="form-control" required=""></textarea>
+                                <input type="text" name="uh2" class="form-control"></textarea>
                             </td>
                         </tr>
                         <tr>
-                            <td><label>No Telepon</label></td>
+                            <td><label>UH3</label></td>
+                            <td><input type="text" name="uh3" class="form-control"></td>
+                        </tr>
+                        <tr>
+                            <td><label>UH4</label></td>
                             <td>
-                                <input type="text" name="no_telepon" class="form-control" required="">
+                                <input type="text" name="uh4" class="form-control"></textarea>
                             </td>
                         </tr>
                         <tr>
-                            <td><label>Email</label></td>
-                            <td>
-                                <input type="Email" name="email" class="form-control" required="">
-                            </td>
+                            <td><label>UTS</label></td>
+                            <td><input type="text" name="uts" class="form-control"></td>
                         </tr>
                         <tr>
-                            <td><label>Password</label></td>
+                            <td><label>UAS</label></td>
                             <td>
-                                <input type="Password" name="password" class="form-control" required=""></textarea>
+                                <input type="text" name="uas" class="form-control"></textarea>
                             </td>
                         </tr>
                     </table>
-                        <th>
-                            <input type="submit" class="btn btn-primary" value="Simpan">
-                        </th>
                 </div>
-                </form>
             </div>
         </div>
     </div>
