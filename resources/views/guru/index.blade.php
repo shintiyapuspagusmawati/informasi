@@ -35,12 +35,6 @@
                           <span>Jurusan</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
-                      <a href="{{ route('nilai.index') }}" >
-                          <i class=" fa fa-file"></i>
-                          <span>Lihat Nilai Siswa</span>
-                      </a>
-                  </li>
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -63,7 +57,6 @@
                     <a href="{{route('guru.create')}}" class="btn btn-info pull-left">Tambah Data</a>
                     <table class="table table-hover">
                             <tr>
-                                <th>Id</th>
                                 <th>NIPG</th>
                                 <th>Foto</th>
                                 <th>Nama Guru</th>
@@ -78,7 +71,6 @@
                              </tr>
                         @foreach ($gurus as $data)
                         <tr>
-                            <td>{{$data->id}}</td>
                             <td>{{$data->nipg}}</td>
                             <td>
                                 <img src="{{ asset('/img/'.$data->foto.'') }}" width="100px" height="100px">
@@ -87,7 +79,9 @@
                             <td>{{$data->nama_guru}}</td>
                             <td>{{$data->jenis_kelamin}}</td>
                             <td>{{$data->tanggal_lahir}}</td>
-                            <td>{{$data->kelas}}</td>
+                            <td>
+                              {{$data->kelas}}
+                            </td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->alamat}}</td>
                             <td>{{$data->no_telepon}}</td>

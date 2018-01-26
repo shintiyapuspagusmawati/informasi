@@ -35,12 +35,6 @@
                           <span>Jurusan</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
-                      <a href="{{ route('nilai.index') }}" >
-                          <i class=" fa fa-file"></i>
-                          <span>Lihat Nilai Siswa</span>
-                      </a>
-                  </li>
               </ul>
               <!-- sidebar menu end-->
           </div>

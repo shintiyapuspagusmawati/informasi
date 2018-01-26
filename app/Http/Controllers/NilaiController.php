@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\NilaiRequest;
 use App\nilai;
 use App\siswa;
 use App\mapel;
@@ -46,7 +47,7 @@ class NilaiController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(NilaiRequest $request)
     {
         //
             $nilai =  new nilai();

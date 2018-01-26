@@ -24,20 +24,22 @@ class GuruRequest extends FormRequest
     public function rules()
     {
         return [
+            'nama_guru'=>'required|unique:gurus',
             'nipg'=>'required|numeric|unique:gurus',
             'no_telepon'=>'required|numeric|unique:gurus',
             'email'=>'required|unique:gurus'
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
-            'nipg.required'=>'NIPG Wajib Di isi',
-            'nipg.numeric'=>'NIPG Tidak Boleh Memakai Huruf',
-            'no_telepon.required'=>'No Telepon Wajib Di isi',
-            'no_telepon.numeric'=>'No Telepon Tidak Boleh Memakai Huruf',
-            'email'=>'Email Ini Telah Dipakai'
+            'nama_guru.required'=>'nama guru telah dipakai',
+            'nipg.required'=>'nipg wajib di isi',
+            'nipg.numeric'=>'nipg tidak boleh memakai huruf',
+            'no_telepon.required'=>'no telepon wajib di isi',
+            'no_telepon.numeric'=>'no telepon tidak boleh memakai huruf',
+            'email'=>'email ini telah dipakai'
         ];
     }
 }

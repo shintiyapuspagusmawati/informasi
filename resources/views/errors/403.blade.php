@@ -36,7 +36,7 @@
 		<div class="content">
 			<div class="title">:(</div>
 			<p>Maaf, Anda tidak memiliki akses untuk fitur ini.</p>
-			<p><a href="{{url('/')}}">Kembali ke halaman awal</a></p>
+			<p><a href="{{url('/home')}}">Kembali ke halaman awal</a></p>
 		</div>
 	</div>
 </body>

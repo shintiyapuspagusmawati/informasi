@@ -19,7 +19,7 @@ class GuruController extends Controller
      */
     public function index()
     {
-        $gurus = DB::table('gurus')->join('mapels','gurus.id_mapel','=','mapels.id')->join('kelas','kelas.id','=','gurus.id_kelas')->select('gurus.*', 'mapels.name','kelas.kelas')->get();
+        $gurus = DB::table('gurus')->join('mapels','gurus.id_mapel','=','mapels.id')->select('gurus.*', 'mapels.name')->get();
         return view('guru.index', compact('gurus'));
     }
 
@@ -44,6 +44,7 @@ class GuruController extends Controller
     public function store(GuruRequest $request)
     {
         //
+            // return $request->id_kelas;
             $user= new user();
             $user->name = $request->nama_guru;
             $user->email = $request->email;
@@ -63,10 +64,13 @@ class GuruController extends Controller
                 $guru->move($destinationPath, $filename);
                 $gurus->foto = $filename; 
             }
+            foreach ($request->id_kelas as $index => $value) {
+                $data[$index]= $value;
+            }
             $gurus->nama_guru = $request->nama_guru;
             $gurus->jenis_kelamin = $request->jenis_kelamin;
             $gurus->tanggal_lahir = $request->tanggal_lahir;
-            $gurus->id_kelas = $request->id_kelas;
+            $gurus->kelas = $data;
             $gurus->id_mapel = $request->id_mapel;
             $gurus->alamat = $request->alamat;
             $gurus->no_telepon = $request->no_telepon;
@@ -115,7 +119,6 @@ class GuruController extends Controller
     {
         //
             $gurus =  guru::findOrFail($id);
-            $gurus->nipg = $request->nipg;
             $gurus->foto = $request->foto;
             if ($request->hasfile('foto')) {
                 $guru = $request->file('foto');

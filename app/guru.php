@@ -21,5 +21,7 @@ class guru extends Model
         return $this->BelongsTo('App\user', 'id_user');
     }
 
-
+    protected $casts = [
+        'kelas' => 'array',
+    ];
 }

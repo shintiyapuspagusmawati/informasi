@@ -35,12 +35,6 @@
                           <span>Jurusan</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
-                      <a href="{{ route('nilai.index') }}" >
-                          <i class=" fa fa-file"></i>
-                          <span>Lihat Nilai Siswa</span>
-                      </a>
-                  </li>
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -92,9 +86,9 @@
                         </tr>
                         <tr>
                             <td><label>Kelas</label></td>
-                            <td><select class="form-control" name="id_kelas">
+                            <td><select multiple="multiple" class="form-control" name="id_kelas[]">
                                 @foreach($kelas as $data)
-                                <option value="{{$data->id}}">{{$data->kelas}}</option>
+                                <option value="{{$data->kelas}}">{{$data->kelas}}</option>
                                 @endforeach
                                 </select></td>
                         </tr>

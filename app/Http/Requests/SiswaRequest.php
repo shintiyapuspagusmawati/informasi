@@ -29,8 +29,8 @@ class SiswaRequest extends FormRequest
             'email'=>'required|unique:siswas'
         ];
     }
-
-    public function message()
+ 
+    public function messages()
     {
         return [
             'nis.required'=>'NIS Wajib Di isi',

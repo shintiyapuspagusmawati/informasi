@@ -4,38 +4,7 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-              @role('admin')
-                  <li class="sub-menu">
-                      <a href="{{ route('guru.index') }}">
-                          <i class="fa fa-book"></i>
-                          <span>Data Guru</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="{{ route('siswa.index') }}" >
-                          <i class="fa fa-tasks"></i>
-                          <span>Data Siswa</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="{{ route('mapel.index') }}" >
-                          <i class="fa fa-th"></i>
-                          <span>Mata Pelajaran</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="{{ route('kelas.index') }}" >
-                          <i class=" fa fa-bar-chart-o"></i>
-                          <span>Kelas</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="{{ route('jurusan.index') }}" >
-                          <i class=" fa fa-cogs"></i>
-                          <span>Jurusan</span>
-                      </a>
-                  </li>
-                  @endrole
+                
                   <li class="mt">
                       <a class="active" href="{{ route('nilai.index') }}" >
                           <i class=" fa fa-file"></i>

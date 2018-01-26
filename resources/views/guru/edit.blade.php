@@ -35,12 +35,6 @@
                           <span>Jurusan</span>
                       </a>
                   </li>
-                  <li class="sub-menu">
-                      <a href="{{ route('nilai.index') }}" >
-                          <i class=" fa fa-file"></i>
-                          <span>Lihat Nilai Siswa</span>
-                      </a>
-                  </li>
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -59,10 +53,6 @@
                     <input name="_method" type="hidden" value="PATCH">
                     {{csrf_field()}}
                     <table class="table table-hover">
-                        <tr>
-                            <td><label>NIPG</label></td>
-                            <td><input type="text" name="nipg" class="form-control" value="<?php echo $gurus['nipg'];?>"></td>
-                        </tr>
                         <tr>
                             <td><label>Foto</label></td>
                             <td><img src="{{asset('img/'.$gurus->foto)}}" width="100px" height="100px"><input type="file" name="foto"></td>

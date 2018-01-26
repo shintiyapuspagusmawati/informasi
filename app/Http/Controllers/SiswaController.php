@@ -8,8 +8,8 @@ use App\jurusan;
 use App\user;
 use App\Role;
 use App\Http\Requests\SiswaRequest;
-use DB;
 use Illuminate\Http\Request;
+use DB;
 
 class SiswaController extends Controller
 {
@@ -110,7 +110,6 @@ class SiswaController extends Controller
     {
         //
             $siswas =  siswa::findOrFail($id);
-            $siswas->nis = $request->nis;
             $siswas->foto = $request->foto;
             if ($request->hasfile('foto'))
              {

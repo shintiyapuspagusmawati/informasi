@@ -22,8 +22,9 @@ class CreateGurusTable extends Migration
             $table->string('nama_guru');
             $table->string('jenis_kelamin');
             $table->date('tanggal_lahir');
-            $table->integer('id_kelas')->unsigned();
-            $table->foreign('id_kelas')->references('id')->on('kelas')->onUpdate('cascade')->onDelete('cascade');
+            $table->text('kelas');
+            // $table->integer('id_kelas')->unsigned();
+            // $table->foreign('id_kelas')->references('id')->on('kelas')->onUpdate('cascade')->onDelete('cascade');
             $table->integer('id_mapel')->unsigned();
             $table->foreign('id_mapel')->references('id')->on('mapels')->onUpdate('cascade')->onDelete('cascade'); 
             $table->text('alamat');
