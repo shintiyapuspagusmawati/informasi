@@ -87,38 +87,6 @@
                 <div class="panel-heading">
                     <center><label class="panel-title"><h3><b>Selamat Datang</b></h3></label></center><br><br>
                 </div>
-
-                <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-4">
-                            <div class="col-sm-12">
-                                <center><a href="{{ route('guru.index') }}" class="btn btn-info"><i class="pe-7s-wallet"></i> DATA GURU</a></center>
-                                  <div><br><br><br></div>
-                            </div>
-                            <div class="col-sm-12 col-md-offset-6">
-                                <center><a href="{{ route('kelas.index') }}" class="btn btn-info"><i class="pe-7s-tools"></i>  KELAS</a></center>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="col-sm-12">
-                                <center><a href="{{ route('siswa.index') }}" class="btn btn-info"><i class="pe-7s-users"></i> DATA SISWA</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                            <div class="col-sm-12 col-md-offset-6">
-                                <center><a href="{{ route('jurusan.index') }}" class="btn btn-info"><i class="pe-7s-culture"></i> JURUSAN</a></center>
-                            </div>
-                        </div>
-
-                        <div class="col-md-4">
-                            <div class="col-sm-12">
-                                <center><a href="{{ route('mapel.index') }}" class="btn btn-info"><i class="pe-7s-news-paper"></i> MATA PELAJARAN</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
     </div>
 </div>
@@ -133,15 +101,11 @@
                 <div class="panel-heading">
                     <center><label class="panel-title"><h3><b>Selamat Datang</b></h3></label></center><br><br>
                 </div>
-
                 <div class="panel-body">
-                    <div class="row">
-                        <div class="col-md-4 col-md-offset-4">
-                            <div class="col-sm-12">
-                                <center><a href="{{ route('nilai.index') }}" class="btn btn-info">NILAI SISWA</a></center>
-                            </div>
-                        </div>
-                    </div>
+                  @php
+                  $guru = App\guru::where('id_user','=', Auth::user()->id)->first();
+                  $kelas = $guru->kelas;
+                  @endphp
                 </div>
             </div>
         </div>
@@ -169,7 +133,7 @@
                       @foreach($mapel as $data)
                         <div class="col-md-3">
                             <div class="col-sm-12">
-                                <center><a href="{{ url('/admin/nisis',$data->id) }}" class="btn btn-primary">{{$data->name}}</a></center>
+                                <center><a href="{{ url('/siswa/nisis',$data->id) }}" class="btn btn-primary">{{$data->name}}</a></center>
                                 <div><br><br><br></div>
                             </div>
                         </div>

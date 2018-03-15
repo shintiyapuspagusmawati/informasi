@@ -4,11 +4,11 @@
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
-                
+
                   <li class="mt">
                       <a class="active" href="{{ route('nilai.index') }}" >
                           <i class=" fa fa-file"></i>
-                          <span>Nilai Siswa</span>
+                          <span>Nilai</span>
                       </a>
                   </li>
               </ul>

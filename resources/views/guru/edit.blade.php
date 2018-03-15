@@ -76,6 +76,14 @@
                             </td>
                         </tr>
                         <tr>
+                            <td><label>Kelas</label></td>
+                            <td><select multiple="multiple" class="form-control" name="id_kelas[]">
+                                @foreach($kelas as $data)
+                                <option value="{{$data->kelas}}">{{$data->kelas}}</option>
+                                @endforeach
+                                </select></td>
+                        </tr>
+                        <tr>
                             <td><label>Mata Pelajaran</label></td>
                             <td><select class="form-control" name="id_mapel">
                                 @foreach($a as $data)

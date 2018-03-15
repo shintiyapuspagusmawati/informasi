@@ -6,9 +6,9 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
                   <li class="sub-menu">
-                      <a href="{{ route('jurusan.index') }}" >
+                      <a href="{{ url('/home') }}" >
                           <i class=" fa fa-cogs"></i>
-                          <span>Jurusan</span>
+                          <span>Nilai</span>
                       </a>
                   </li>
               </ul>
@@ -22,7 +22,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                <div class="panel-title">Tambah Nilai Siswa</div>
+                <div class="panel-title">Nilai Siswa</div>
                 </div>
                 <div class="panel-body">
                   @if($errors->any())

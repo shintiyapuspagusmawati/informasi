@@ -6,9 +6,9 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
                   <li class="mt">
-                      <a class="active" href="{{ route('nilai.index') }}" >
+                      <a class="active" href="{{ url('/home') }}" >
                           <i class=" fa fa-file"></i>
-                          <span>Nilai Siswa</span>
+                          <span>Nilai</span>
                       </a>
                   </li>
               </ul>

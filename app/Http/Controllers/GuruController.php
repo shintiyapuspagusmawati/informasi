@@ -107,8 +107,9 @@ class GuruController extends Controller
     {
         //
         $gurus = guru::findOrFail($id);
+        $kelas = kelas::all();
         $a =  mapel::all(); 
-        return view('guru.edit', compact('gurus','a'));
+        return view('guru.edit', compact('gurus','a','kelas'));
     }
 
     /**
