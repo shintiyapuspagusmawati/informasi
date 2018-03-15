@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
 
 Auth::routes();
@@ -26,6 +26,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','role:admin|guru|siswa']],
 	Route::resource('kelas','KelasController');
 	Route::resource('jurusan','JurusanController');
 	Route::resource('nilai','NilaiController');
+	Route::get('nisis/{id}','NisisController@index');
     });
 
 Route::get('/filter/{mapel}','HomeController@filter');

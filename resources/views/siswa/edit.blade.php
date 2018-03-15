@@ -63,8 +63,9 @@
                         <tr>
                             <td><label>Jenis Kelamin</label></td>
                             <td>
-                            <input type="radio" name="jenis_kelamin" value="Laki Laki<?php echo $siswas['jenis_kelamin'];?>" class="" >Laki Laki
-                            <input type="radio" name="jenis_kelamin" value="Perempuan<?php echo $siswas['jenis_kelamin'];?>" class="">Perempuan
+                            <input type="radio" name="jenis_kelamin" value="Laki-Laki" <?php if($siswas['jenis_kelamin']=='Laki-Laki') echo "checked"; ?>>Laki-Laki&nbsp;&nbsp;
+                            <input type="radio" name="jenis_kelamin" value="Perempuan" 
+                            <?php if($siswas['jenis_kelamin']=='Perempuan') echo "checked"; ?>>Perempuan
                             </td>
                         </tr>
                         <tr>
@@ -99,6 +100,18 @@
                             <td><label>No Telepon</label></td>
                             <td>
                                 <input type="text" name="no_telepon" class="form-control" value="<?php echo $siswas['no_telepon'];?>"></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Email</label></td>
+                            <td>
+                                <input type="Email" name="email" class="form-control" required="" value="<?php echo $siswas['email'];?>">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><label>Password</label></td>
+                            <td>
+                                <input type="Password" name="password" class="form-control" required="" value="<?php echo $siswas['password'];?>"></textarea>
                             </td>
                         </tr>
                     </table>

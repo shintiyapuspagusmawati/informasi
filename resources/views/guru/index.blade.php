@@ -67,7 +67,7 @@
                                 <th>Alamat</th>
                                 <th>No Telpon</th>
                                 <th>Email</th>
-                                <th colspan="2">action</th>
+                                <th colspan="3">action</th>
                              </tr>
                         @foreach ($gurus as $data)
                         <tr>
@@ -92,6 +92,7 @@
                                     <input name="_token" type="hidden" value="{{ csrf_token() }}">
                                     <a href="{{route('guru.edit', $data->id)}}" class="btn btn-warning">Edit</a>
                                     <input type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin akan menghapus data ?');" value="Delete">
+                                    <a href="{{route('guru.show', $data->id)}}" class="btn btn-success">Show</a>
                                 </form>
                             </td>
                       </tr>

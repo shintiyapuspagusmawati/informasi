@@ -37,7 +37,7 @@
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start-->
-      <header class="header black-bg">
+      <header class="header btn-info">
             <!--logo start-->
             @role('admin')
             <a href="{{ url('/home') }}" class="logo"><b>{{ Auth::user()->name}}</b></a>
@@ -49,8 +49,9 @@
             <a href="{{ url('/home') }}" class="logo"><b>{{ Auth::user()->name}}</b></a>
             @endrole
             <!--logo end-->
+            <br>
             <div class="top-menu">
-              <ul class="nav pull-right logout">
+              <ul class="nav pull-right top-menu">
                     <li><a href="{{ url('/logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Logout</a>
                   <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
                   {{ csrf_field() }}

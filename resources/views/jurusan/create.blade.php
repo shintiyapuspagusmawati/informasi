@@ -42,13 +42,13 @@
 
 <div class="container">
     <div class="row">
+      <br><br><br><br><br>
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                 <div class="panel-title">Tambah Jurusan</div>
                 </div>
                 <div class="panel-body">
-                    <h2>Jurusan</h2><hr>
                    <form action="{{route('jurusan.store')}}" method="post">
                     {{csrf_field()}}
                     <table class="table table-hover">

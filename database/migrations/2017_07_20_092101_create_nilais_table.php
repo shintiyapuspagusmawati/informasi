@@ -17,13 +17,13 @@ class CreateNilaisTable extends Migration
             $table->increments('id');
             $table->integer('id_siswa');
             $table->integer('id_mapel');
-            $table->integer('kkm');
-            $table->integer('uh1');
-            $table->integer('uh2');
-            $table->integer('uh3');
-            $table->integer('uh4');
-            $table->integer('uts');
-            $table->integer('uas');
+            $table->float('kkm');
+            $table->float('uh1');
+            $table->float('uh2');
+            $table->float('uh3');
+            $table->float('uh4');
+            $table->float('uts');
+            $table->float('uas');
             $table->timestamps();
 
 

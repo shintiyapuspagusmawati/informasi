@@ -92,6 +92,9 @@ class GuruController extends Controller
     public function show($id)
     {
         //
+        $gurus = guru::findOrFail($id);
+        $a =  mapel::all(); 
+        return view('guru.show', compact('gurus','a'));
     }
 
     /**

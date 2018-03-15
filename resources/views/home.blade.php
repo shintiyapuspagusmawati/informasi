@@ -162,62 +162,18 @@
 
                 <div class="panel-body">
                     <h4><center>Silakan Pilih Mata Pelajaran Untuk Melihat Nilai</center></h4><br><br>
+                    @php
+                    $mapel = App\mapel::all();
+                    @endphp
                     <div class="row">
+                      @foreach($mapel as $data)
                         <div class="col-md-3">
                             <div class="col-sm-12">
-                                <center><a href="{{ url('/admin/nilai') }}" class="btn btn-primary">Al-Qur'an</a></center>
-                                  <div><br><br><br></div>
-                            </div>
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-primary">SBK</a></center>
+                                <center><a href="{{ url('/admin/nisis',$data->id) }}" class="btn btn-primary">{{$data->name}}</a></center>
                                 <div><br><br><br></div>
-                            </div>
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-primary">B.Indonesia</a></center>
                             </div>
                         </div>
-
-                        <div class="col-md-3">
-                            <div class="col-sm-12">
-                                <center><a href="{{ url('/matematika') }}" class="btn btn-primary">Matematika</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-primary">Penjas</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-primary">PKN</a></center>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-primary">PAI</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-primary">DKK</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-primary">Fisika</a></center>
-                            </div>
-                        </div>
-
-                        <div class="col-md-3">
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-primary">B.Inggris</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-primary">IPA</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                            <div class="col-sm-12">
-                                <center><a href="#" class="btn btn-primary">Kimia</a></center>
-                            </div>
-                        </div>
+                        @endforeach
             </div>
         </div>
     </div>

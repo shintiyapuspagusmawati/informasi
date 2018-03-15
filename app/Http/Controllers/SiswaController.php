@@ -82,6 +82,10 @@ class SiswaController extends Controller
     public function show($id)
     {
         //
+        $siswas = siswa::findOrFail($id);
+        $kelas = kelas::all();
+        $jurusan = jurusan::all();
+        return view('siswa.show', compact('siswas','kelas','jurusan'));
     }
 
     /**

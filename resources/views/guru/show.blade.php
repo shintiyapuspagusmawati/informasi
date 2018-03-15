@@ -46,10 +46,10 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                <div class="panel-title">Edit Data Guru</div>
+                <div class="panel-title">Data Guru</div>
                 </div>
                 <div class="panel-body">
-                   <form action="{{route('guru.update',$gurus->id)}}" method="post" enctype="multipart/form-data" files="true">
+                   <form action="" method="post" enctype="multipart/form-data" files="true">
                     <input name="_method" type="hidden" value="PATCH">
                     {{csrf_field()}}
                     <table class="table table-hover">
@@ -108,9 +108,6 @@
                             </td>
                         </tr>
                     </table>
-                        <th>
-                            <input type="submit" class="btn btn-primary" value="Simpan">
-                        </th>
                 </div>
                 </form>
             </div>

@@ -5,10 +5,10 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-                  <li class="mt">
-                      <a class="active" href="{{ route('nilai.index') }}" >
-                          <i class=" fa fa-file"></i>
-                          <span>Nilai Siswa</span>
+                  <li class="sub-menu">
+                      <a href="{{ route('jurusan.index') }}" >
+                          <i class=" fa fa-cogs"></i>
+                          <span>Jurusan</span>
                       </a>
                   </li>
               </ul>
