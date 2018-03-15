@@ -77,9 +77,9 @@
                         </tr>
                         <tr>
                             <td><label>Kelas</label></td>
-                            <td><select multiple="multiple" class="form-control" name="id_kelas[]">
+                            <td><select multiple="multiple" class="form-control" name="id_kelas[]" value="<?php echo $gurus['id_kelas[]'];?>">
                                 @foreach($kelas as $data)
-                                <option value="{{$data->kelas}}">{{$data->kelas}}</option>
+                                <option value="{{$data->kelas}}" <?php if($gurus->id_kelas == $data->id) echo "multiple='multiple'"; ?>>{{$data->kelas}}</option>
                                 @endforeach
                                 </select></td>
                         </tr>
@@ -87,7 +87,7 @@
                             <td><label>Mata Pelajaran</label></td>
                             <td><select class="form-control" name="id_mapel">
                                 @foreach($a as $data)
-                                <option value="{{$data->id}}">{{$data->name}}</option>
+                                <option value="{{$data->id}}" <?php if($gurus->id_mapel == $data->id) echo "selected='selected'"; ?>>{{$data->name}}</option>
                                 @endforeach
                                 </select></td>
                         </tr>

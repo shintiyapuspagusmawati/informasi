@@ -79,9 +79,7 @@
                             <td>{{$data->nama_guru}}</td>
                             <td>{{$data->jenis_kelamin}}</td>
                             <td>{{$data->tanggal_lahir}}</td>
-                            <td>
-                              {{$data->kelas}}
-                            </td>
+                            <td>{{$data->kelas}}</td>
                             <td>{{$data->name}}</td>
                             <td>{{$data->alamat}}</td>
                             <td>{{$data->no_telepon}}</td>

@@ -132,6 +132,10 @@ class GuruController extends Controller
                 $guru->move($destinationPath, $filename);
                 $gurus->foto = $filename; 
             }
+            foreach ($request->id_kelas as $index => $value) {
+                $data[$index]= $value;
+            }
+            $gurus->kelas = $data;
             $gurus->nama_guru = $request->nama_guru;
             $gurus->jenis_kelamin = $request->jenis_kelamin;
             $gurus->tanggal_lahir = $request->tanggal_lahir;
