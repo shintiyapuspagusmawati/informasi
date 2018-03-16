@@ -24,7 +24,7 @@ class NilaiRequest extends FormRequest
     public function rules( )
     {
         return [
-            'id_siswa'=>'required|unique:nilais'
+            'id_siswa'=>'required'
         ];
     }
 

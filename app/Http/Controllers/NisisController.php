@@ -22,7 +22,7 @@ class NisisController extends Controller
     {
         //
         $nilai = nilai::where('id_siswa', Auth::user()->id)->get();
-        return view('nilai.index', compact('nilai'));
+        return view('nisis.index', compact('nilai'));
     }
 
     /**
@@ -36,7 +36,7 @@ class NisisController extends Controller
         $siswa    = siswa::all();
         $id_mapel = guru::where('id_user', Auth::user()->id)->first()->id_mapel;
         $mapel    = mapel::where('id',$id_mapel)->firstOrFail();
-        return view('nilai.create', compact('mapel','siswa'));
+        return view('nisis.create', compact('mapel','siswa'));
     }
 
     /**
@@ -59,7 +59,7 @@ class NisisController extends Controller
             $nilai->uts = $request->uts;
             $nilai->uas = $request->uas;
             $nilai->save();
-            return redirect()->route('nilai.index')->with('alert-success', 'Data Berhasil Disimpan.');
+            return redirect()->route('nisis.index')->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**
@@ -74,7 +74,7 @@ class NisisController extends Controller
         $siswa = siswa::all();
         $mapel= mapel::where('id', Auth::user()->id)->firstOrFail();
         $nilai = nilai::findOrFail($id);
-        return view('nilai.show')->with(compact('nilai','siswa','mapel'));
+        return view('nisis.show')->with(compact('nilai','siswa','mapel'));
     }
 
     /**
@@ -89,7 +89,7 @@ class NisisController extends Controller
         $siswa = siswa::all();
         $mapel= mapel::where('id', Auth::user()->id)->firstOrFail();
         $nilai = nilai::findOrFail($id);
-        return view('nilai.edit')->with(compact('nilai','siswa','mapel'));
+        return view('nisis.edit')->with(compact('nilai','siswa','mapel'));
     }
 
     /**
@@ -113,7 +113,7 @@ class NisisController extends Controller
             $nilai->uts = $request->uts;
             $nilai->uas = $request->uas;
             $nilai->save();
-            return redirect()->route('nilai.index')->with('alert-success', 'Data Berhasil Disimpan.');
+            return redirect()->route('nisis.index')->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**
@@ -126,6 +126,6 @@ class NisisController extends Controller
     {
         //
         nilai::destroy($id);
-        return redirect()->route('nilai.index');
+        return redirect()->route('nisis.index');
     }
 }

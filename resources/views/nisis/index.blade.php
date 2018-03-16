@@ -6,7 +6,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
                   <li class="mt">
-                      <a class="active" href="{{ url('/home') }}" >
+                      <a class="active" href="{{ url('/nisis', Auth::user()->id) }}" >
                           <i class=" fa fa-file"></i>
                           <span>Nilai</span>
                       </a>
@@ -36,7 +36,6 @@
                     <table class="table table-hover">
                             <tr>
                                 <th>Id</th>
-                                <th>Nama Siswa</th>
                                 <th>Mata Pelajaran</th>
                                 <th>KKM</th>
                                 <th>UH1</th>
@@ -52,8 +51,7 @@
                         @foreach ($nilai as $data)
                         <tr>
                             <td>{{$data->id}}</td>
-                            <td>{{$data->nama_siswa}}</td>
-                            <td>{{$data->name}}</td>
+                            <td>{{$data->mapel->name}}</td>
                             <td>{{$data->kkm}}</td>
                             <td>{{$data->uh1}}</td>
                             <td>{{$data->uh2}}</td>

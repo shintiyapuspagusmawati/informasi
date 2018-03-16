@@ -67,7 +67,7 @@
               <ul class="sidebar-menu" id="nav-accordion">
               
                   <li class="mt">
-                      <a class="active" href="{{ url('/home') }}">
+                      <a class="active" href="{{ url('/siswa/nisis', Auth::user()->id) }}">
                           <i class="fa fa-dashboard"></i>
                           <span>Nilai</span>
                       </a>
@@ -123,22 +123,6 @@
                 <div class="panel-heading">
                     <center><label class="panel-title"><h3><b>Selamat Datang</b></h3></label></center><br><br>
                 </div>
-
-                <div class="panel-body">
-                    <h4><center>Silakan Pilih Mata Pelajaran Untuk Melihat Nilai</center></h4><br><br>
-                    @php
-                    $mapel = App\mapel::all();
-                    @endphp
-                    <div class="row">
-                      @foreach($mapel as $data)
-                        <div class="col-md-3">
-                            <div class="col-sm-12">
-                                <center><a href="{{ url('/siswa/nisis',$data->id) }}" class="btn btn-primary">{{$data->name}}</a></center>
-                                <div><br><br><br></div>
-                            </div>
-                        </div>
-                        @endforeach
-            </div>
         </div>
     </div>
 </div>

@@ -64,8 +64,8 @@
                         <tr>
                             <td><label>Jenis Kelamin</label></td>
                             <td>
-                            <input type="radio" name="jenis_kelamin" value="Laki-Laki" <?php if($gurus['jenis_kelamin']=='Laki-Laki') echo "checked"; ?> required="">Laki-Laki&nbsp;&nbsp;
-                            <input type="radio" name="jenis_kelamin" value="Perempuan" <?php if($gurus['jenis_kelamin']=='Perempuan') echo "checked"; ?> requied="">Perempuan
+                            <input type="radio" name="jenis_kelamin" required="" value="Laki-Laki" <?php if($gurus['jenis_kelamin']=='Laki-Laki') echo "checked"; ?>>Laki-Laki&nbsp;&nbsp;
+                            <input type="radio" name="jenis_kelamin" required="" value="Perempuan"<?php if($gurus['jenis_kelamin']=='Perempuan') echo "checked"; ?>>Perempuan
                             </td>
                         </tr>
                         <tr>

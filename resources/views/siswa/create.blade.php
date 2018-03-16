@@ -61,32 +61,32 @@
                     <table class="table table-hover">
                         <tr>
                             <td><label>NIS</label></td>
-                            <td><input type="text" name="nis" class="form-control"></td>
+                            <td><input type="text" name="nis" class="form-control" required=""></td>
                         </tr>
                         <tr>
                             <td><label>Foto</label></td>
-                            <td><input type="file" name="foto"></td>
+                            <td><input type="file" name="foto" required=""></td>
                         </tr>
                         <tr>
                             <td><label>Nama siswa</label></td>
-                            <td><input type="text" name="nama_siswa" class="form-control"></td>
+                            <td><input type="text" name="nama_siswa" class="form-control" required=""></td>
                         </tr>
                         <tr>
                             <td><label>Jenis Kelamin</label></td>
                             <td>
-                            <input type="radio" name="jenis_kelamin" value="Laki Laki" class="">Laki Laki
-                            <input type="radio" name="jenis_kelamin" value="Perempuan" class="">Perempuan
+                            <input type="radio" name="jenis_kelamin" value="Laki Laki" class="" required="">Laki Laki
+                            <input type="radio" name="jenis_kelamin" value="Perempuan" class="" required="">Perempuan
                             </td>
                         </tr>
                         <tr>
                             <td><label>Tanggal Lahir</label></td>
                             <td>
-                                <input type="date" name="tanggal_lahir" class="form-control">
+                                <input type="date" name="tanggal_lahir" class="form-control" required="">
                             </td>
                         </tr>
                         <tr>
                             <td><label>Kelas</label></td>
-                            <td><select class="form-control" name="id_kelas">
+                            <td><select class="form-control" name="id_kelas" required="">
                                 @foreach($kelas as $data)
                                 <option value="{{$data->id}}">{{$data->kelas}}</option>
                                 @endforeach
@@ -94,7 +94,7 @@
                         </tr>
                         <tr>
                             <td><label>Jurusan</label></td>
-                              <td><select class="form-control" name="jurusan_id">
+                              <td><select class="form-control" name="jurusan_id" required="">
                                 @foreach($jurusan as $data)
                                 <option value="{{$data->id}}">{{$data->jurusan}}</option>
                                 @endforeach
@@ -103,13 +103,13 @@
                         <tr>
                             <td><label>Alamat</label></td>
                             <td>
-                                <textarea name="alamat" class="form-control"></textarea>
+                                <textarea name="alamat" class="form-control" required=""></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td><label>No Telepon</label></td>
                             <td>
-                                <input type="text" name="no_telepon" class="form-control"></textarea>
+                                <input type="text" name="no_telepon" class="form-control" required=""></textarea>
                             </td>
                         </tr>
                         <tr>
