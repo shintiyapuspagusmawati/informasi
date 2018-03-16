@@ -40,7 +40,17 @@ class SiswaController extends Controller
     public function store(SiswaRequest $request)
     {
         //
+            $user= new user();
+            $user->name = $request->nama_siswa;
+            $user->email = $request->email;
+            $user->password =bcrypt($request->password);
+            $user->is_verified = 1;
+            $user->save();
+            $siswaRole = Role::where('name', 'siswa')->first();
+            $user->attachRole($siswaRole);
+
             $siswas =  new siswa();
+            $siswas->id = $user->id;
             $siswas->nis = $request->nis;
             if ($request->hasfile('foto')) {
                 $siswa = $request->file('foto');
@@ -58,18 +68,11 @@ class SiswaController extends Controller
             $siswas->alamat = $request->alamat;
             $siswas->no_telepon = $request->no_telepon;
             $siswas->email = $request->email;
-            $siswas->password = $request->password;
+            $siswas->password = bcrypt($request->password);
             $siswas->save();
 
-            $user= new user();
-            $user->name = $request->nama_siswa;
-            $user->email = $request->email;
-            $user->password =bcrypt($request->password);
-            $user->is_verified = 1;
-            $user->save();
-            $siswaRole = Role::where('name', 'siswa')->first();
-            $user->attachRole($siswaRole);
-            return redirect()->route('siswa.index')->with('alert-success', 'Data Berhasil Disimpan.');
+            
+            return redirect('/admin/siswa')->with('alert-success', 'Data Berhasil Disimpan.');
     }
 
     /**

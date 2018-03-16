@@ -74,8 +74,8 @@
                         <tr>
                             <td><label>Jenis Kelamin</label></td>
                             <td>
-                            <input type="radio" name="jenis_kelamin" value="Laki Laki" class="">Laki Laki
-                            <input type="radio" name="jenis_kelamin" value="Perempuan" class="">Perempuan
+                            <input type="radio" name="jenis_kelamin" value="Laki Laki" class="" required="">Laki Laki
+                            <input type="radio" name="jenis_kelamin" value="Perempuan" class="" required="">Perempuan
                             </td>
                         </tr>
                         <tr>
@@ -86,7 +86,7 @@
                         </tr>
                         <tr>
                             <td><label>Kelas</label></td>
-                            <td><select multiple="multiple" class="form-control" name="id_kelas[]">
+                            <td><select multiple="multiple" class="form-control" name="id_kelas[]" required="">
                                 @foreach($kelas as $data)
                                 <option value="{{$data->kelas}}">{{$data->kelas}}</option>
                                 @endforeach

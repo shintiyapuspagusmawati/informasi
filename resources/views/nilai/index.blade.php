@@ -52,8 +52,8 @@
                         @foreach ($nilai as $data)
                         <tr>
                             <td>{{$data->id}}</td>
-                            <td>{{$data->nama_siswa}}</td>
-                            <td>{{$data->name}}</td>
+                            <td>{{$data->siswa->nama_siswa}}</td>
+                            <td>{{$data->mapel->name}}</td>
                             <td>{{$data->kkm}}</td>
                             <td>{{$data->uh1}}</td>
                             <td>{{$data->uh2}}</td>

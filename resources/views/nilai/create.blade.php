@@ -61,9 +61,7 @@
                         </tr>
                         <tr>
                             <td><label>UH2</label></td>
-                            <td>
-                                <input type="text" name="uh2" class="form-control"></textarea>
-                            </td>
+                            <td><input type="text" name="uh2" class="form-control"></td>
                         </tr>
                         <tr>
                             <td><label>UH3</label></td>
@@ -71,9 +69,7 @@
                         </tr>
                         <tr>
                             <td><label>UH4</label></td>
-                            <td>
-                                <input type="text" name="uh4" class="form-control"></textarea>
-                            </td>
+                            <td><input type="text" name="uh4" class="form-control"></td>
                         </tr>
                         <tr>
                             <td><label>UTS</label></td>
@@ -81,9 +77,7 @@
                         </tr>
                         <tr>
                             <td><label>UAS</label></td>
-                            <td>
-                                <input type="text" name="uas" class="form-control"></textarea>
-                            </td>
+                            <td><input type="text" name="uas" class="form-control"></td>
                         </tr>
                     </table>
                         <th>

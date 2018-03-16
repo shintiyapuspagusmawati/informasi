@@ -55,29 +55,28 @@
                     <table class="table table-hover">
                         <tr>
                             <td><label>Foto</label></td>
-                            <td><img src="{{asset('img/'.$gurus->foto)}}" width="100px" height="100px"><input type="file" name="foto"></td>
+                            <td><img src="{{asset('img/'.$gurus->foto)}}" width="100px" height="100px"><input type="file" name="foto" required=""></td>
                         </tr>
                         <tr>
                             <td><label>Nama Guru</label></td>
-                            <td><input type="text" name="nama_guru" class="form-control" value="<?php echo $gurus['nama_guru'];?>"></td>
+                            <td><input type="text" name="nama_guru" class="form-control" value="<?php echo $gurus['nama_guru'];?>" required=""></td>
                         </tr>
                         <tr>
                             <td><label>Jenis Kelamin</label></td>
                             <td>
-                            <input type="radio" name="jenis_kelamin" value="Laki-Laki" <?php if($gurus['jenis_kelamin']=='Laki-Laki') echo "checked"; ?>>Laki-Laki&nbsp;&nbsp;
-                            <input type="radio" name="jenis_kelamin" value="Perempuan" 
-                            <?php if($gurus['jenis_kelamin']=='Perempuan') echo "checked"; ?>>Perempuan
+                            <input type="radio" name="jenis_kelamin" value="Laki-Laki" <?php if($gurus['jenis_kelamin']=='Laki-Laki') echo "checked"; ?> required="">Laki-Laki&nbsp;&nbsp;
+                            <input type="radio" name="jenis_kelamin" value="Perempuan" <?php if($gurus['jenis_kelamin']=='Perempuan') echo "checked"; ?> requied="">Perempuan
                             </td>
                         </tr>
                         <tr>
                             <td><label>Tanggal Lahir</label></td>
                             <td>
-                                <input type="date" name="tanggal_lahir" class="form-control" value="<?php echo $gurus['tanggal_lahir'];?>">
+                                <input type="date" name="tanggal_lahir" class="form-control" value="<?php echo $gurus['tanggal_lahir'];?>" required="">
                             </td>
                         </tr>
                         <tr>
                             <td><label>Kelas</label></td>
-                            <td><select multiple="multiple" class="form-control" name="id_kelas[]" value="<?php echo $gurus['id_kelas[]'];?>">
+                            <td><select multiple="multiple" class="form-control" name="id_kelas[]" required="" value="<?php echo $gurus['id_kelas[]'];?>">
                                 @foreach($kelas as $data)
                                 <option value="{{$data->kelas}}" <?php if($gurus->id_kelas == $data->id) echo "multiple='multiple'"; ?>>{{$data->kelas}}</option>
                                 @endforeach
@@ -85,7 +84,7 @@
                         </tr>
                         <tr>
                             <td><label>Mata Pelajaran</label></td>
-                            <td><select class="form-control" name="id_mapel">
+                            <td><select class="form-control" name="id_mapel" required="">
                                 @foreach($a as $data)
                                 <option value="{{$data->id}}" <?php if($gurus->id_mapel == $data->id) echo "selected='selected'"; ?>>{{$data->name}}</option>
                                 @endforeach
@@ -94,13 +93,13 @@
                         <tr>
                             <td><label>Alamat</label></td>
                             <td>
-                                <textarea name="alamat" class="form-control"><?php echo $gurus['alamat'];?></textarea>
+                                <textarea name="alamat" required="" class="form-control"> <?php echo $gurus['alamat'];?></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td><label>No Telepon</label></td>
                             <td>
-                                <input type="text" name="no_telepon" class="form-control" value="<?php echo $gurus['no_telepon'];?>">
+                                <input type="text" name="no_telepon" class="form-control" required="" value="<?php echo $gurus['no_telepon'];?>">
                             </td>
                         </tr>
                         <tr>

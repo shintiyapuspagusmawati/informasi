@@ -22,7 +22,7 @@
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                <div class="panel-title">Nilai Siswa</div>
+                <div class="panel-title">Nilai</div>
                 </div>
                 <div class="panel-body">
                   @if($errors->any())
@@ -53,37 +53,31 @@
                         </tr>
                         <tr>
                             <td><label>KKM</label></td>
-                            <td><input type="text" name="kkm" class="form-control"></td>
+                            <td><input type="text" name="kkm" class="form-control" value="<?php echo $nilai['kkm'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UH1</label></td>
-                            <td><input type="text" name="uh1" class="form-control"></td>
+                            <td><input type="text" name="uh1" class="form-control" value="<?php echo $nilai['uh1'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UH2</label></td>
-                            <td>
-                                <input type="text" name="uh2" class="form-control"></textarea>
-                            </td>
+                            <td><input type="text" name="uh2" class="form-control" value="<?php echo $nilai['uh2'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UH3</label></td>
-                            <td><input type="text" name="uh3" class="form-control"></td>
+                            <td><input type="text" name="uh3" class="form-control" value="<?php echo $nilai['uh3'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UH4</label></td>
-                            <td>
-                                <input type="text" name="uh4" class="form-control"></textarea>
-                            </td>
+                            <td><input type="text" name="uh4" class="form-control" value="<?php echo $nilai['uh4'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UTS</label></td>
-                            <td><input type="text" name="uts" class="form-control"></td>
+                            <td><input type="text" name="uts" class="form-control" value="<?php echo $nilai['uts'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UAS</label></td>
-                            <td>
-                                <input type="text" name="uas" class="form-control"></textarea>
-                            </td>
+                            <td><input type="text" name="uas" class="form-control" value="<?php echo $nilai['uas'];?>"></td>
                         </tr>
                     </table>
                 </div>

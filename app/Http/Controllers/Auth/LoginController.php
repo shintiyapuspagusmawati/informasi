@@ -37,4 +37,17 @@ class LoginController extends Controller
         $this->middleware('guest', ['except' => 'logout']);
         $this->middleware('user-should-verified');
     }
+
+    protected function authenticating($request, $user)
+    {
+        if($user->hasRole(['admin'])){
+            return redirect('/home');
+        }
+        elseif($user->hasRole(['guru'])){
+            return redirect('/guru/nilai');
+        }
+        else{
+            return redirect('/siswa/nisis');
+        }
+    }
 }

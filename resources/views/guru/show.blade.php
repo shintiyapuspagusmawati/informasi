@@ -55,29 +55,29 @@
                     <table class="table table-hover">
                         <tr>
                             <td><label>Foto</label></td>
-                            <td><img src="{{asset('img/'.$gurus->foto)}}" width="100px" height="100px"><input type="file" name="foto"></td>
+                            <td><img src="{{asset('img/'.$gurus->foto)}}" width="100px" height="100px" readonly=""></td>
                         </tr>
                         <tr>
                             <td><label>Nama Guru</label></td>
-                            <td><input type="text" name="nama_guru" class="form-control" value="<?php echo $gurus['nama_guru'];?>"></td>
+                            <td><input type="text" name="nama_guru" class="form-control" readonly="" value="<?php echo $gurus['nama_guru'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>Jenis Kelamin</label></td>
                             <td>
-                            <input type="radio" name="jenis_kelamin" value="Laki-Laki" <?php if($gurus['jenis_kelamin']=='Laki-Laki') echo "checked"; ?>>Laki-Laki&nbsp;&nbsp;
+                            <input type="radio" name="jenis_kelamin" value="Laki-Laki" <?php if($gurus['jenis_kelamin']=='Laki-Laki') echo "checked"; ?> readonly="">Laki-Laki&nbsp;&nbsp;
                             <input type="radio" name="jenis_kelamin" value="Perempuan" 
-                            <?php if($gurus['jenis_kelamin']=='Perempuan') echo "checked"; ?>>Perempuan
+                            <?php if($gurus['jenis_kelamin']=='Perempuan') echo "checked"; ?> readonly="">Perempuan
                             </td>
                         </tr>
                         <tr>
                             <td><label>Tanggal Lahir</label></td>
                             <td>
-                                <input type="date" name="tanggal_lahir" class="form-control" value="<?php echo $gurus['tanggal_lahir'];?>">
+                                <input type="date" name="tanggal_lahir" class="form-control" readonly="" value="<?php echo $gurus['tanggal_lahir'];?>">
                             </td>
                         </tr>
                         <tr>
                             <td><label>Mata Pelajaran</label></td>
-                            <td><select class="form-control" name="id_mapel">
+                            <td><select class="form-control" name="id_mapel" readonly="">
                                 @foreach($a as $data)
                                 <option value="{{$data->id}}">{{$data->name}}</option>
                                 @endforeach
@@ -86,25 +86,25 @@
                         <tr>
                             <td><label>Alamat</label></td>
                             <td>
-                                <textarea name="alamat" class="form-control"><?php echo $gurus['alamat'];?></textarea>
+                                <textarea name="alamat" class="form-control" readonly=""><?php echo $gurus['alamat'];?></textarea>
                             </td>
                         </tr>
                         <tr>
                             <td><label>No Telepon</label></td>
                             <td>
-                                <input type="text" name="no_telepon" class="form-control" value="<?php echo $gurus['no_telepon'];?>">
+                                <input type="text" name="no_telepon" class="form-control" readonly="" value="<?php echo $gurus['no_telepon'];?>">
                             </td>
                         </tr>
                         <tr>
                             <td><label>Email</label></td>
                             <td>
-                                <input type="Email" name="email" class="form-control" required="" value="<?php echo $gurus['email'];?>">
+                                <input type="Email" name="email" class="form-control" readonly="" value="<?php echo $gurus['email'];?>">
                             </td>
                         </tr>
                         <tr>
                             <td><label>Password</label></td>
                             <td>
-                                <input type="Password" name="password" class="form-control" required="" value="<?php echo $gurus['password'];?>"></textarea>
+                                <input type="Password" name="password" class="form-control" readonly="" value="<?php echo $gurus['password'];?>"></textarea>
                             </td>
                         </tr>
                     </table>

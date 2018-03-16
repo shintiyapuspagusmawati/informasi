@@ -38,7 +38,7 @@
                     <table class="table table-hover">
                       <tr>
                             <td><label>Nama Siswa</label></td>
-                            <td><select class="form-control" name="id_siswa">
+                            <td><select class="form-control" name="id_siswa" required="">
                                 @foreach($siswa as $data)
                                 <option value="{{$data->id}}">{{$data->nama_siswa}}</option>
                                 @endforeach
@@ -54,37 +54,31 @@
                         </tr>
                         <tr>
                             <td><label>KKM</label></td>
-                            <td><input type="text" name="kkm" class="form-control" value="<?php echo $nilai['kkm'];?>"></td>
+                            <td><input type="text" name="kkm" class="form-control" required="" value="<?php echo $nilai['kkm'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UH1</label></td>
-                            <td><input type="text" name="uh1" class="form-control" value="<?php echo $nilai['uh1'];?>"></td>
+                            <td><input type="text" name="uh1" class="form-control" required="" value="<?php echo $nilai['uh1'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UH2</label></td>
-                            <td>
-                                <input type="text" name="uh2" class="form-control" value="<?php echo $nilai['uh2'];?>"></textarea>
-                            </td>
+                            <td><input type="text" name="uh2" class="form-control" required="" value="<?php echo $nilai['uh2'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UH3</label></td>
-                            <td><input type="text" name="uh3" class="form-control" value="<?php echo $nilai['uh3'];?>"></td>
+                            <td><input type="text" name="uh3" class="form-control" required="" value="<?php echo $nilai['uh3'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UH4</label></td>
-                            <td>
-                                <input type="text" name="uh4" class="form-control" value="<?php echo $nilai['uh4'];?>"></textarea>
-                            </td>
+                            <td><input type="text" name="uh4" class="form-control" required="" value="<?php echo $nilai['uh4'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UTS</label></td>
-                            <td><input type="text" name="uts" class="form-control" value="<?php echo $nilai['uts'];?>"></td>
+                            <td><input type="text" name="uts" class="form-control" required="" value="<?php echo $nilai['uts'];?>"></td>
                         </tr>
                         <tr>
                             <td><label>UAS</label></td>
-                            <td>
-                                <input type="text" name="uas" class="form-control" value="<?php echo $nilai['uas'];?>"></textarea>
-                            </td>
+                            <td><input type="text" name="uas" class="form-control" required="" value="<?php echo $nilai['uas'];?>"></td>
                         </tr>
                     </table>
                         <th>

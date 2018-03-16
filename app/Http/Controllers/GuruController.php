@@ -75,7 +75,7 @@ class GuruController extends Controller
             $gurus->alamat = $request->alamat;
             $gurus->no_telepon = $request->no_telepon;
             $gurus->email = $request->email;
-            $gurus->password = $request->password;
+            $gurus->password = bcrypt($request->password);
             $gurus->save();
 
            
