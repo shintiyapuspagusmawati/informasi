@@ -17,7 +17,7 @@ class GuruController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $gurus = DB::table('gurus')->join('mapels','gurus.id_mapel','=','mapels.id')->select('gurus.*', 'mapels.name')->get();
         return view('guru.index', compact('gurus'));
@@ -65,7 +65,7 @@ class GuruController extends Controller
                 $gurus->foto = $filename; 
             }
             foreach ($request->id_kelas as $index => $value) {
-                $data[$index]= $value;
+                $data[$index] = $value;
             }
             $gurus->nama_guru = $request->nama_guru;
             $gurus->jenis_kelamin = $request->jenis_kelamin;

@@ -130,4 +130,17 @@ class NilaiController extends Controller
         nilai::destroy($id);
         return redirect()->route('nilai.index');
     }
+
+    public function filterkelas($id)
+    {
+        $id_mapel = guru::where('id_user',Auth::user()->id)->first()->id_mapel;
+        $nilai = DB::table('nilais')->join('siswas','siswas.id','=','nilais.id_siswa')
+                 ->join('mapels','mapels.id','=','nilais.id_mapel')
+                 ->join('kelas','kelas.id','=','siswas.id_kelas')
+                 ->select('nilais.*','siswas.nama_siswa','mapels.name')
+                 ->where('mapels.id', $id_mapel)
+                 ->where('kelas.id', $id)->get();
+        return view('nilai.index', compact('nilai'));
+       // nilai::where('kelas_id',$id)
+    }
 }

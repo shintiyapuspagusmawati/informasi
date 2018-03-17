@@ -104,8 +104,16 @@
                 <div class="panel-body">
                   @php
                   $guru = App\guru::where('id_user','=', Auth::user()->id)->first();
-                  $kelas = $guru->kelas;
+
+                  foreach($guru->kelas as $key => $value){
+                    $id = App\kelas::where('kelas',$value)->first()->id;
+                    $kelas = App\kelas::where('kelas',$value)->first()->kelas;
+                    $d[$id] = $kelas;
+                  }
                   @endphp
+                  @foreach($d as $id => $value)
+                    <a href="{{url('guru/nilai/kelas/'.$id)}}" class="btn btn-primary">{{$value}}</a>
+                @endforeach
                 </div>
             </div>
         </div>
@@ -128,4 +136,3 @@
 </div>
 @endrole
 @endsection
-

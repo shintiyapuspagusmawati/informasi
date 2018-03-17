@@ -29,6 +29,7 @@ Route::group(['prefix'=>'admin','middleware'=>['auth','role:admin']], function()
 
 Route::group(['prefix'=>'guru','middleware'=>['auth','role:guru']], function(){
 	Route::resource('nilai','NilaiController');
+	Route::get('nilai/kelas/{id}','NilaiController@filterkelas');
     });
 
 Route::group(['prefix'=>'siswa','middleware'=>['auth','role:siswa']], function(){
